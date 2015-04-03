@@ -6,7 +6,7 @@ title: Video.js Amaze UI Skin 演示
 ---
 
 `````html
-<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+<video id="example_video_1" class="video-js vjs-default-skin" controls preload="fdsajkfds" width="640" height="364"
        poster="http://video-js.zencoder.com/oceans-clip.png"
        data-setup="{}">
   <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
@@ -23,7 +23,7 @@ title: Video.js Amaze UI Skin 演示
 </script>
 `````
 ```html
-<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="364"
        poster="http://video-js.zencoder.com/oceans-clip.png"
        data-setup="{}">
   <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />

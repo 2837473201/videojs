@@ -18,12 +18,12 @@ Create your own skin at http://designer.videojs.com
 @touch-device-font-size: 15px;
 
 // The main font color controls the color of the text and the icons (font icons)
-@main-font-color: #CCCCCC; // e.g. rgb(255, 255, 255) or #ffffff
+@main-font-color: rgba(255, 255, 255, 0.8); // e.g. rgb(255, 255, 255) or #ffffff
 
 // The default color of control backgrounds is mostly black but with a little
 // bit of blue so it can still be seen on all black video frames, which are
 // common.
-@control-bg-color: #07141E; // e.g. rgb(255, 255, 255) or #ffffff
+@control-bg-color: #000; // e.g. rgb(255, 255, 255) or #ffffff
 @control-bg-alpha: 0.7; // 1.0 = 100% opacity, 0.0 = 0% opacity
 
 // The slider bar color is used for the progress bar and the volume bar
@@ -49,15 +49,15 @@ Create your own skin at http://designer.videojs.com
 // The font size is what makes the big play button, big. All width/height values
 // use ems, which are a multiple of the font size.
 // If the @base-font-size is 10px, then 3em equals 30px.
-@big-play-font-size: 3em;
+@big-play-font-size: 10em;
 // Now that font size is set, the following em values will be a multiple of the
 // new font size. If @big-play-font-size is 3em (30px), then setting the any of
 // the following values to 2em would equal 60px. 2 * font-size
-@big-play-margin: 0.5em;
-@big-play-width: 4em;
-@big-play-height: 2.6em;
-@big-play-border-radius: 0.8em;
-@big-play-border-width: 0.1em;
+@big-play-margin: 0;
+@big-play-width: 100%;
+@big-play-height: 100%;
+@big-play-border-radius: 0;
+@big-play-border-width: 0;
 @big-play-border-color: #3b4249;
 
 /* SKIN
@@ -76,7 +76,7 @@ e.g. <video class="video-js my-skin-name">
 The control icons are from a custom font. Each icon corresponds to a character
 (e.g. "\e001"). Font icons allow for easy scaling and coloring of icons.
 */
-@vjs-font-path: 'font';
+/*@vjs-font-path: 'font';
 @font-face{
   font-family: 'VideoJS';
   src: url('@{vjs-font-path}/vjs.eot');
@@ -87,27 +87,28 @@ The control icons are from a custom font. Each icon corresponds to a character
 
   font-weight: normal;
   font-style: normal;
-}
+}*/
 
 // Icon font character values
-@play-icon: "\e001";
-@pause-icon: "\e002";
-@volume-muted-icon: "\e003";
-@volume-low-icon: "\e004";
-@volume-mid-icon: "\e005";
-@volume-high-icon: "\e006";
-@fullscreen-enter-icon: "\e000";
-@fullscreen-exit-icon: "\e00b";
-@square-icon: "\e009";
-@spinner-icon: "\e00a";
-@spinner2-icon: "\e00d";
-@spinner3-icon: "\e01e";
-@spinner4-icon: "\e01f";
-@subtitles-icon: "\e00c";
-@captions-icon: "\e008";
-@chapters-icon: "\e00c";
-@share-icon: "\e00e";
-@cog-icon: "\e600";
+@play-icon: @fa-var-play;
+@play-icon-circle: @fa-var-play-circle-o;
+@pause-icon: @fa-var-pause;
+@volume-muted-icon: @fa-var-volume-off;
+@volume-low-icon:  @fa-var-volume-down;
+@volume-mid-icon: @fa-var-volume-down;
+@volume-high-icon: @fa-var-volume-up;
+@fullscreen-enter-icon: @fa-var-arrows-alt;
+@fullscreen-exit-icon: @fa-var-compress;
+@square-icon: @fa-var-circle;
+@spinner-icon: @fa-var-spinner;
+@spinner2-icon: @fa-var-spinner;
+@spinner3-icon: @fa-var-spinner;
+@spinner4-icon: @fa-var-spinner;
+@subtitles-icon: @fa-var-keyboard-o;
+@captions-icon: @fa-var-keyboard-o;
+@chapters-icon: @fa-var-area-chart;
+@share-icon: @fa-var-share-alt;
+@cog-icon: @fa-var-cog;
 
 /* Base UI Component Classes
 --------------------------------------------------------------------------------
@@ -125,7 +126,7 @@ The control icons are from a custom font. Each icon corresponds to a character
 }
 
 .vjs-default-skin .vjs-slider:focus {
-  .box-shadow(0 0 2em #fff);
+  .box-shadow(0 0 4em #fff);
 }
 
 .vjs-default-skin .vjs-slider-handle {
@@ -137,17 +138,17 @@ The control icons are from a custom font. Each icon corresponds to a character
 
 .vjs-default-skin .vjs-slider-handle:before {
   content: @square-icon;
-  font-family: VideoJS;
+  font-family: FontAwesome;
   font-size: 1em;
   line-height: 1;
   text-align: center;
   text-shadow: 0em 0em 1em #fff;
 
   position: absolute;
-  top: 0;
+  top: -3px;
   left: 0;
 
-  /* Rotate the square icon to make a diamond *///
+  // Rotate the square icon to make a diamond ///
   .transform(rotate(-45deg));
 }
 
@@ -166,7 +167,7 @@ The default control bar that is a container for most of the controls.
   left: 0;
   right: 0;
   /* Height includes any margin you want above or below control items *///
-  height: 3.0em;
+  height: 5em;
 
   .background-color-with-alpha(@control-bg-color, @control-bg-alpha);
 }
@@ -229,15 +230,15 @@ fonts to show/hide properly.
   text-align: center;
   margin: 0;
   padding: 0;
-  height: 3.0em;
+  height: 5em;
   width: 4em;
 }
 
 /* Font button icons */
 .vjs-default-skin .vjs-control:before {
-  font-family: VideoJS;
-  font-size: 1.5em;
-  line-height: 2;
+  font-family: FontAwesome;
+  font-size: 2em;
+  line-height: 3;
   position: absolute;
   top: 0;
   left: 0;
@@ -329,21 +330,23 @@ fonts to show/hide properly.
 }
 .vjs-default-skin .vjs-volume-bar {
   width: 5em;
-  height: 0.6em;
-  margin: 1.1em auto 0;
+  height: 4px;
+  margin: 2.3em auto 0;
+  background: rgba(255, 255, 255, .7);
 }
 
 .vjs-default-skin .vjs-volume-level {
   position: absolute;
   top: 0;
   left: 0;
-  height: 0.5em;
+  height: 4px;
   /* assuming volume starts at 1.0 */
   width: 100%;
 
-  background: @slider-bar-color
+  /*background: @slider-bar-color
     url(@slider-bar-pattern)
-    -50% 0 repeat;
+    -50% 0 repeat;*/
+  background: @global-primary;
 }
 .vjs-default-skin .vjs-volume-bar .vjs-volume-handle {
   width: 0.5em;
@@ -402,7 +405,7 @@ fonts to show/hide properly.
   font-size: 0.3em;
   height: 1em;
   /* Set above the rest of the controls. *///
-  top: -1em;
+  //top: -1em;
 
   /* Shrink the bar slower than it grows. *///
   .transition(all 0.4s);
@@ -421,7 +424,7 @@ fonts to show/hide properly.
 
 /* Box containing play and load progresses. Also acts as seek scrubber. */
 .vjs-default-skin .vjs-progress-holder {
-  height: 100%;
+  height: 4px;
 }
 
 /* Progress Bars */
@@ -430,7 +433,7 @@ fonts to show/hide properly.
 .vjs-default-skin .vjs-progress-holder .vjs-load-progress div {
   position: absolute;
   display: block;
-  height: 100%;
+  height: 4px;
   margin: 0;
   padding: 0;
   /* updated by javascript during playback */
@@ -448,14 +451,16 @@ fonts to show/hide properly.
     Changing the first color value will change the bar color.
     Also using a paralax effect to make the lines move backwards.
       The -50% left position makes that happen.
-  */
+
   background: @slider-bar-color
     url(@slider-bar-pattern)
     -50% 0 repeat;
+    */
+  background: @global-primary;
 }
 .vjs-default-skin .vjs-load-progress {
   background: rgb(100, 100, 100) /* IE8- Fallback */;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.5);
 }
 
 /* there are child elements of the load progress bar that represent the
@@ -470,9 +475,9 @@ fonts to show/hide properly.
   height: 100%;
 }
 
-.vjs-default-skin .vjs-seek-handle:before {
-  padding-top: 0.1em /* Minor adjustment */;
-}
+//.vjs-default-skin .vjs-seek-handle:before {
+//  padding-top: 0.1em /* Minor adjustment */;
+//}
 
 /* Live Mode
 --------------------------------------------------------------------------------
@@ -492,7 +497,7 @@ fonts to show/hide properly.
 .vjs-default-skin .vjs-live-display {
   display: none;
   font-size: 1em;
-  line-height: 3em;
+  line-height: 5em;
 }
 
 /* Time Display
@@ -501,13 +506,13 @@ fonts to show/hide properly.
 .vjs-default-skin .vjs-time-controls {
   font-size: 1em;
   /* Align vertically by making the line height the same as the control bar *///
-  line-height: 3em;
+  line-height: 5em;
 }
 .vjs-default-skin .vjs-current-time { float: left; }
 .vjs-default-skin .vjs-duration { float: left; }
 /* Remaining time is in the HTML, but not included in default design */
 .vjs-default-skin .vjs-remaining-time { display: none; float: left; }
-.vjs-time-divider { float: left; line-height: 3em; }
+.vjs-time-divider { float: left; line-height: 5em; }
 
 /* Fullscreen
 --------------------------------------------------------------------------------
@@ -588,25 +593,26 @@ easily in the skin designer. http://designer.videojs.com/
   border-color: #fff;
   /* IE8 needs a non-glow hover state *///
   background-color: rgb(80, 80, 80);
-  background-color: rgba(50, 50, 50, 0.75);
+  background-color: rgba(50, 50, 50, 0.45);
 
   .box-shadow(0 0 3em #fff);
   .transition(all 0s);
 }
 
 .vjs-default-skin .vjs-big-play-button:before {
-  content: @play-icon;
-  font-family: VideoJS;
+  content: @play-icon-circle;
+  font-family: FontAwesome;
   /* In order to center the play icon vertically we need to set the line height
      to the same as the button height */
   line-height: @big-play-height;
-  text-shadow: 0.05em 0.05em 0.1em #000;
+  // text-shadow: 0.05em 0.05em 0.1em #000;
   text-align: center /* Needed for IE8 */;
 
   position: absolute;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  left: 50%;
+  top: 50%;
+  margin-top: -50px;
+  margin-left: -43px;
 }
 
 .vjs-error .vjs-big-play-button {
@@ -631,8 +637,8 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 .vjs-error .vjs-error-display:before {
-  content: 'X';
-  font-family: Arial;
+  content: @fa-var-close;
+  font-family: @font-family-sans-serif;
   font-size: 4em;
   color: #666666;
   /* In order to center the play icon vertically we need to set the line height
@@ -709,7 +715,7 @@ easily in the skin designer. http://designer.videojs.com/
 
 .vjs-default-skin .vjs-loading-spinner:before {
   content: @spinner3-icon;
-  font-family: VideoJS;
+  font-family: FontAwesome;
 
   position: absolute;
   top: 0;
@@ -819,19 +825,19 @@ easily in the skin designer. http://designer.videojs.com/
 }
 
 /* Subtitles Button */
-.vjs-default-skin .vjs-subtitles-button:before {
+/*.vjs-default-skin .vjs-subtitles-button:before {
   content: @subtitles-icon;
-}
+}*/
 
 /* Captions Button */
-.vjs-default-skin .vjs-captions-button:before {
+/*.vjs-default-skin .vjs-captions-button:before {
   content: @captions-icon;
-}
+}*/
 
 /* Chapters Button */
-.vjs-default-skin .vjs-chapters-button:before {
+/*.vjs-default-skin .vjs-chapters-button:before {
   content: @chapters-icon;
-}
+}*/
 
 .vjs-default-skin .vjs-chapters-button.vjs-menu-button .vjs-menu .vjs-menu-content {
   width: 24em;
@@ -871,7 +877,7 @@ control positioning and full window mode. **
   font-weight: normal;
   font-style: normal;
   /* Avoiding helvetica: issue #376 */
-  font-family: Arial, sans-serif;
+  font-family: @font-family-sans-serif;
 
   /* Turn off user selection (text highlighting) by default.
      The majority of player components will not be text blocks.
@@ -1238,3 +1244,12 @@ body.vjs-full-window {
 /* -----------------------------------------------------------------------------
 The original source of this file lives at
 https://github.com/videojs/video.js/blob/master/src/css/video-js.less */
+
+
+// Amaze UI Custom
+// =========================
+
+.vjs-subtitles-button,
+.vjs-captions-button {
+  display: none;
+}
