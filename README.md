@@ -10,7 +10,6 @@
 1. 获取皮肤：
 
   - [直接下载](https://github.com/amazeui/videojs/archive/master.zip)
-  <!-- - 使用 NPM: `npm install amazeui-videojs`-->
 
 2. 在 Amaze UI 样式之后引入主题：
 
