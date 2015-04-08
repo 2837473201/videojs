@@ -31,8 +31,10 @@
 
 4. 使用 `<video>` 插入视频：
 
+  在 `<video>` 上添加 `.video-js` 和 `.vjs-amazeui` class。
+
 ```html
-<video id="example_video_1" class="video-js vjs-default-skin" controls preload="none" width="640" height="264"
+<video id="example_video_1" class="video-js vjs-amazeui" controls preload="none" width="640" height="264"
        poster="http://video-js.zencoder.com/oceans-clip.png"
        data-setup="{}">
   <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' />
