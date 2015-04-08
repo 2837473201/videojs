@@ -56,8 +56,7 @@
 <ol>
 <li><p>获取皮肤：</p>
 <ul>
-<li><a href="https://github.com/amazeui/videojs/archive/master.zip">直接下载</a><!-- - 使用 NPM: `npm install amazeui-videojs`-->
-</li>
+<li><a href="https://github.com/amazeui/videojs/archive/master.zip">直接下载</a></li>
 </ul>
 </li>
 <li><p>在 Amaze UI 样式之后引入主题：</p>
@@ -70,9 +69,10 @@
 videojs.options.flash.swf = <span class="hljs-string">"video.js/video-js.swf"</span>;
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></code></pre></div></li>
 <li><p>使用 <code>&lt;video&gt;</code> 插入视频：</p>
+<p>在 <code>&lt;video&gt;</code> 上添加 <code>.video-js</code> 和 <code>.vjs-amazeui</code> class。</p>
 </li>
 </ol>
-<div class="doc-code demo-highlight"><pre><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">video</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"example_video_1"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"video-js vjs-default-skin"</span> <span class="hljs-attribute">controls</span> <span class="hljs-attribute">preload</span>=<span class="hljs-value">"none"</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">"640"</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">"264"</span>
+<div class="doc-code demo-highlight"><pre><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">video</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"example_video_1"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"video-js vjs-amazeui"</span> <span class="hljs-attribute">controls</span> <span class="hljs-attribute">preload</span>=<span class="hljs-value">"none"</span> <span class="hljs-attribute">width</span>=<span class="hljs-value">"640"</span> <span class="hljs-attribute">height</span>=<span class="hljs-value">"264"</span>
        <span class="hljs-attribute">poster</span>=<span class="hljs-value">"http://video-js.zencoder.com/oceans-clip.png"</span>
        <span class="hljs-attribute">data-setup</span>=<span class="hljs-value">"{}"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">source</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"http://video-js.zencoder.com/oceans-clip.mp4"</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">'video/mp4'</span> /&gt;</span>
