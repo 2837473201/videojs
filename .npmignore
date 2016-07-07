@@ -6,6 +6,5 @@ docs
 gulpfile.js
 .editorconfig
 .gitignore
-.jshintrc
+.eslintrc
 .npmignore
-bower.json

@@ -1,8 +1,8 @@
 {
   "name": "amazeui-videojs",
-  "version": "0.1.0",
-  "description": "jQuery tags input plugin based on Amaze UI.",
-  "main": "amazeui.tagsinput.min.js",
+  "version": "0.2.0",
+  "description": "Vedio.js Amaze UI 风格皮肤",
+  "main": "amazeui.videojs.less",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,7 +23,7 @@
   "bugs": {
     "url": "https://github.com/amazeui/videojs/issues"
   },
-  "homepage": "https://github.com/amazeui/videojs",
+  "homepage": "http://amazeui.github.io/videojs/",
   "licenses": [
     {
       "type": "Apache",
@@ -32,25 +32,26 @@
   ],
   "devDependencies": {
     "amazeui-doc-util": "latest",
-    "browser-sync": "^2.3.0",
-    "browserify": "^8.1.0",
-    "browserify-shim": "^3.8.2",
-    "del": "^1.1.1",
-    "gulp": "^3.8.10",
-    "gulp-autoprefixer": "^2.1.0",
-    "gulp-csso": "^0.2.9",
-    "gulp-gh-pages": "^0.4.0",
-    "gulp-less": "^2.0.1",
-    "gulp-load-plugins": "^0.8.0",
-    "gulp-rename": "^1.2.0",
-    "gulp-uglify": "^1.1.0",
-    "markit-json": "^0.2.1",
-    "run-sequence": "^1.0.2",
-    "through2": "^0.6.3",
-    "vinyl-transform": "^1.0.0"
+    "browser-sync": "^2.13.0",
+    "browserify": "^13.0.1",
+    "browserify-shim": "^3.8.12",
+    "del": "^2.2.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-csso": "^2.0.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-less": "^3.1.0",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-marked-json": "^1.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.4",
+    "run-sequence": "^1.2.2",
+    "through2": "^2.0.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "amazeui": "^2.1.0"
+    "amazeui": "^2.7.0"
   },
   "browserify": {
     "transform": [

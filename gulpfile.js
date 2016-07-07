@@ -3,16 +3,16 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var browserify = require('browserify');
-var transform = require('vinyl-transform');
-var markJSON = require('markit-json');
+var source = require('vinyl-source-stream');
+var buffer = require('vinyl-buffer');
 var docUtil = require('amazeui-doc-util');
 var browserSync = require('browser-sync');
 var del = require('del');
 var runSequence = require('run-sequence');
 var reload = browserSync.reload;
 
-gulp.task('clean', function(cb) {
-  del('dist', cb);
+gulp.task('clean', function() {
+  return del('dist');
 });
 
 gulp.task('copy', function() {
@@ -22,7 +22,7 @@ gulp.task('copy', function() {
 
 gulp.task('docs', function(){
   return gulp.src(['README.md', 'docs/*.md'])
-    .pipe(markJSON(docUtil.markedOptions))
+    .pipe($.markedJson(docUtil.markedOptions))
     .pipe(docUtil.applyTemplate(null, {
       pluginTitle: 'Video.js Amaze UI Skin',
       pluginDesc: 'Video.js Amaze UI Skin',
@@ -54,19 +54,14 @@ gulp.task('less', function() {
 });
 
 gulp.task('bundle', function() {
-  var bundler = transform(function(filename) {
-    var b = browserify({
-      entries: filename,
-      basedir: './'
-    });
-    return b.bundle();
+  var b = browserify({
+    entries: 'test/main.js',
+    basedir: './'
   });
 
-  gulp.src('test/main.js')
-    .pipe(bundler)
-    .pipe($.rename({
-      basename: 'bundle'
-    }))
+  return b.bundle()
+    .pipe(source('bundle.js'))
+    .pipe(buffer())
     .pipe(gulp.dest('test'))
 });
 
